@@ -256,9 +256,9 @@ Even silence logged my code."
                   </button>
                   <button
                     className="px-4 py-2 bg-indigo-700 text-indigo-100 rounded hover:bg-indigo-600 transition-colors"
-                    onClick={handleFoundCulprit}
+                    onClick={handleBackToExplore}
                   >
-                    IDENTIFY SUSPECT
+                    Back To Explore
                   </button>
                 </div>
               </div>

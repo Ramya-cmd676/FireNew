@@ -218,7 +218,7 @@ const FutureJourney = () => {
         />
         <Route
           path="/node2"
-          element={<FutureNodeDetail nodeId="node2" updateProgress={updateProgress} />}
+          element={<FutureRiddleNode nodeId="node2" updateProgress={updateProgress} />}
         />
         <Route
           path="/node3"
