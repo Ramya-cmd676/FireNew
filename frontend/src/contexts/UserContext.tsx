@@ -12,17 +12,21 @@ interface UserContextType {
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [username, setUsername] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState(() => localStorage.getItem('username') || '');
+  const [isLoggedIn, setIsLoggedIn] = useState(() => localStorage.getItem('isLoggedIn') === 'true');
 
   const login = (username: string) => {
     setUsername(username);
     setIsLoggedIn(true);
+    localStorage.setItem('username', username);
+    localStorage.setItem('isLoggedIn', 'true');
   };
 
   const logout = () => {
     setUsername('');
     setIsLoggedIn(false);
+    localStorage.removeItem('username');
+    localStorage.removeItem('isLoggedIn');
   };
 
   const getTimelinePath = () => {
@@ -31,7 +35,6 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     } else if (username.endsWith('02')) {
       return '/journey/future';
     }
-    // Default to past timeline if no matching pattern
     return '/journey/past';
   };
 
@@ -41,6 +44,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     </UserContext.Provider>
   );
 };
+
 
 export const useUser = () => {
   const context = useContext(UserContext);

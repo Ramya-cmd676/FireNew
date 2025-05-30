@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useUser } from '../contexts/UserContext';
 import StarryBackground from '../components/animations/StarryBackground';
 
+
 const Login = () => {
   const [username, setUsername] = useState('');
 const [password, setPassword] = useState('');

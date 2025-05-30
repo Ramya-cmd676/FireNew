@@ -10,7 +10,16 @@ const Home = () => {
   return (
     <PageTransition>
       <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden text-white p-6">
-        <FireRainBackground />
+         <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    className="absolute top-0 left-0 w-full h-full object-cover z-0"
+  >
+    <source src="/FireRain.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
         
         <motion.div 
           className="relative z-10 max-w-xl text-center"
