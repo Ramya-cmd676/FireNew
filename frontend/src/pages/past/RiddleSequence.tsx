@@ -11,41 +11,44 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
   const [riddleIndex, setRiddleIndex] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [narrativeStage, setNarrativeStage] = useState(0); // 0 = riddles, 1/2 = story steps
 
-  const riddleSets = {
-    name1: {
-      riddles: [
-        'I’m tall when I’m young, and I’m short when I’m old. What am I?',
-        'The more you take, the more you leave behind. What am I?',
-        'What has a head, a tail, but no body?',
-      ],
-      answers: ['candle', 'footsteps', 'coin'],
-    },
-    name2: {
-      riddles: [
-        'I speak without a mouth and hear without ears. What am I?',
-        'I come from a mine and get surrounded by wood. What am I?',
-        'I have keys but no locks. What am I?',
-      ],
-      answers: ['echo', 'pencil', 'keyboard'],
-    },
-    name3: {
-      riddles: [
-        'What can travel around the world while staying in the same corner?',
-        'What has hands but can’t clap?',
-        'What gets wetter as it dries?',
-      ],
-      answers: ['stamp', 'clock', 'towel'],
-    },
-    name4: {
-      riddles: [
-        'I shave every day, but my beard stays the same. What am I?',
-        'What has many teeth, but can’t bite?',
-        'What has one eye, but can’t see?',
-      ],
-      answers: ['barber', 'comb', 'needle'],
-    },
-  };
+  
+    const riddleSets = {
+  name1: {
+    riddles: [
+      'When storms of time begin to roar,\nI shield the gate, I guard the core.\nI mend what’s cracked, I stand alone—\nWho am I in flesh and bone?',
+      'I moved through time to fix the pain,\nNot for power, nor for gain.\nI bent the laws, I cracked the flow—\nWhat did I cause, that all now know?',
+      'I reached through time, ignored the cost,\nHoping to regain what I had lost.\nBut even hope, when left unchecked,\nCan turn to ruin. What was my wreck?'
+    ],
+    answers: ['Guardian', 'Distortion', 'Desperation'],
+  },
+  name2: {
+    riddles: [
+      'Tick by tick, I hold the beat,\nOf past and future where they meet.\nI never stop, I never stray—\nWhat marks the flow I guard each day?',
+      'When time is twisted, out of line,\nI restore the grand design.\nBalance is my steady guide—\nWhat do I bring when tides divide?',
+      'Neither lost nor yet to be,\nI live where all can truly see.\nBetween the ends, I hold the key—\nWhat part of time do I decree?'
+    ],
+    answers: ['Clock', 'Order', 'Present'],
+  },
+  name3: {
+    riddles: [
+      'Behind my care, a secret face,\nI broke the rules to find some grace.\nWho hid behind the healer’s mask,\nTo shatter time for a doomed task?',
+      'I come and go but leave a mark,\nA trail behind in places dark.\nYou cannot touch or hold me tight,\nYet I am seen in fading light.\nWhat am I?',
+      'I shine so bright but hold no flame,\nIn every room, you know my name.\nFlip a switch, and there I glow,\nWithout me, darkness starts to grow.\nWhat am I?'
+    ],
+    answers: ['Traitor', 'Shadow', 'bulb'],
+  },
+  name4: {
+    riddles: [
+      'I vanish fast, yet shape the day,\nA trace that thought cannot delay.\nOnce recalled, I lose my name—\nBut still, you play my fleeting game.\nWhat am I?',
+      'I clear the slate, dissolve the line,\nA moment stretched, outside of time.\nNot end, not start — just space to mend,\nWhere timelines break and sometimes bend.\nWhat am I?',
+      'I start again when I should end,\nA trail that curves and won’t descend.\nYou walk my path and find no rest,\nEach turn returns you to the test.\nWhat am I?'
+    ],
+    answers: ['Memory', 'Reset', 'Loop'],
+  },
+};
+
 
   const selectedSet = riddleSets[label] || riddleSets['name1'];
   const { riddles, answers } = selectedSet;
@@ -65,20 +68,33 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
   };
 
   const handleRiddleAnswer = () => {
-    if (input.trim().toLowerCase() === answers[riddleIndex]) {
+    if (input.trim().toLowerCase() === answers[riddleIndex].toLowerCase())
+ {
       if (riddleIndex < riddles.length - 1) {
         setRiddleIndex(riddleIndex + 1);
         setInput('');
       } else {
         updateProgress(label, true);
         if (label === culpritName) {
-          navigate('/journey/past');
+          if (label === 'name2') {
+            setNarrativeStage(1);
+          } else {
+            navigate('/journey/past');
+          }
         } else {
           setShowResult(true);
         }
       }
     } else {
       alert('Incorrect answer. Try again.');
+    }
+  };
+
+  const handleNextNarrative = () => {
+    if (narrativeStage === 1) {
+      setNarrativeStage(2);
+    } else {
+      navigate('/journey/past');
     }
   };
 
@@ -142,11 +158,45 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            {!accessGranted && !showResult && (
+            {/* Narratives */}
+            {narrativeStage === 1 && (
               <>
-                <p className="mb-4">
-                  Enter the keyword to begin your investigation.
+                <p className="italic text-cyan-300 mb-6">
+                  “The model was never static. I thought I was bending moisture — not chronology. I initiated a rainfall
+                  projection calibrated for 2040... but something reverberated beyond it. The simulation echoed, not forward or
+                  backward, but outward — And time, as if stretched too thin, retaliated. One decade fell into drought, another
+                  drowned in storm. I thought I was adjusting variables. I was touching resonance. I didn’t set out to tear the
+                  fabric… but the fault followed me.”
                 </p>
+                <button
+                  className="bg-purple-700 hover:bg-purple-800 px-4 py-2 rounded text-white"
+                  onClick={handleNextNarrative}
+                >
+                  Next
+                </button>
+              </>
+            )}
+
+            {narrativeStage === 2 && (
+              <>
+                <p className="text-cyan-200 mb-6">
+                  Temporal resonance had never been a confirmed phenomenon. It was a theory buried beneath warning labels and
+                  shelved equations. But here was proof. Not only had the Ignis system bent the weather — it had fractured the
+                  architecture of time itself. The present was not broken by chance. It was broken by consequence.
+                </p>
+                <button
+                  className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded text-white"
+                  onClick={handleNextNarrative}
+                >
+                  Next
+                </button>
+              </>
+            )}
+
+            {/* Riddle logic */}
+            {!accessGranted && !showResult && narrativeStage === 0 && (
+              <>
+                <p className="mb-4">Enter the keyword to begin your investigation.</p>
                 <input
                   className="w-full p-2 text-black rounded mb-4"
                   type="text"
@@ -163,11 +213,10 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
               </>
             )}
 
-            {accessGranted && !showResult && (
+            {accessGranted && !showResult && narrativeStage === 0 && (
               <>
                 <p className="mb-4">
-                  <strong>Riddle {riddleIndex + 1}:</strong>{' '}
-                  {riddles[riddleIndex]}
+                  <strong>Riddle {riddleIndex + 1}:</strong> {riddles[riddleIndex]}
                 </p>
                 <input
                   className="w-full p-2 text-black rounded mb-4"
@@ -187,12 +236,8 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
 
             {showResult && (
               <>
-                <p className="mb-4 text-red-400">
-                  Sorry, I am not the culprit. You wasted your time.
-                </p>
-                <p className="mb-6">
-                  Try visiting the Culprit List again and find the real one.
-                </p>
+                <p className="mb-4 text-red-400">Sorry, I am not the culprit. You wasted your time.</p>
+                <p className="mb-6">Try visiting the Culprit List again and find the real one.</p>
                 <button
                   className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded text-white"
                   onClick={handleResultAcknowledgment}

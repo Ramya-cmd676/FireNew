@@ -11,7 +11,8 @@ const TimeMachine = () => {
   const navigate = useNavigate();
 
   const handleJumpClick = () => {
-    const username = user?.username || '';
+    const username = localStorage.getItem('username') || '';
+
 
     if (username.endsWith('01')) {
       setJumpText('PAST');
@@ -133,7 +134,7 @@ const TimeMachine = () => {
               animate={{ opacity: [1, 0.5, 1] }}
               transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
             >
-              QUANTUM
+              SET
             </motion.div>
           </div>
         </motion.div>
@@ -150,23 +151,45 @@ const TimeMachine = () => {
             animate={{ textShadow: ["0 0 10px #22d3ee", "0 0 20px #22d3ee", "0 0 10px #22d3ee"] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            Temporal Interface
+            Ready to travel?
           </motion.h1>
 
-          <motion.div 
-            className="text-lg md:text-xl mb-8 p-8 backdrop-blur-md bg-black/40 rounded-lg border border-cyan-500/30 shadow-[0_0_20px_rgba(34,211,238,0.2)]"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <p className="mb-4">
-              "Initiating chronological displacement sequence. Quantum field stabilizers active."
-            </p>
-            <p>
-              "Warning: Timeline divergence detected. Prepare for temporal jump. Your identity 
-              will determine your destination in the stream of time."
-            </p>
-          </motion.div>
+          <motion.div
+  className="text-base md:text-lg mb-8 px-6 py-4 bg-black/40 rounded-lg border border-yellow-500/20 text-yellow-100 max-w-xl mx-auto leading-relaxed font-light"
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 1.5, duration: 1 }}
+>
+  <p className="mb-3">
+    Inside the vault was a device—two seats, two pods, humming with dormant energy. Notes were written in a long-dead language of science.
+  </p>
+  <p className="mb-3">
+    “There’s only enough charge for two jumps,” Blake said, reading the console. “One to the past. One to the future. No more.”
+  </p>
+  <p className="mb-3">
+    Wrem nodded. “I’ll go forward. If the future’s healed, it must have the answer. You go backward. Find out what caused all this.”
+  </p>
+  <p className="mb-3">
+    They both hesitated. Blake touched Wrem’s hand. “We stay connected,” Blake said.
+  </p>
+  <p className="mb-3">
+    Wrem smirked. “You’ll probably need my help anyway.”
+  </p>
+  <p className="mb-3">
+    They activated the pods. A final moment. The fire rain roared outside, yet time stood still between them.
+  </p>
+  <p className="mb-3 italic text-cyan-300">
+    “See you in the now,” Wrem whispered.
+  </p>
+  <p className="mb-3">
+    The pods began to glow. The air crackled. Somewhere, the broken hourglass turned.
+  </p>
+  <p className="font-semibold text-cyan-400">
+    And just like that—<br />
+    Shall we jump?
+  </p>
+</motion.div>
+
 
           {/* JUMP Button */}
           <div className="flex justify-center mt-8 relative">

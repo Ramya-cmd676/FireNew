@@ -1,3 +1,4 @@
+// DarkDen.tsx
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import NextButton from '../components/NextButton';
@@ -70,22 +71,44 @@ const DarkDen = () => {
             animate={{ textShadow: ["0 0 10px #60a5fa", "0 0 20px #60a5fa", "0 0 10px #60a5fa"] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            The Dark Den
+            The Vault of Clocks
           </motion.h1>
           
           <motion.div 
-            className="text-lg md:text-xl mb-8 p-8 backdrop-blur-md bg-black/40 rounded-lg border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+            className="text-lg md:text-xl mb-8 p-8 backdrop-blur-md bg-black/40 rounded-lg border border-blue-500/30 shadow-[0_0_20px_rgba(59,130,246,0.2)] text-left"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
+          
+            
+
             <p className="mb-4">
-              "Welcome to the hidden sanctuary of temporal technologies. Here, beneath layers of quantum encryption, 
-              we've developed the means to traverse the boundaries of time itself."
+              <strong>They fled</strong> to the only place untouched by fire—<em>an old, shut-down observatory on the hill</em>.
+            </p>
+            <p className="mb-4">
+              In its basement, hidden behind rotted wooden panels, they discovered a steel door with an emblem: <strong>an hourglass, shattered down the middle</strong>.
+            </p>
+            <p className="mb-4">
+              Inside: <strong>blueprints</strong>.
+            </p>
+            <p className="mb-4">
+              <em>“Project Ignis,”</em> Wrem read aloud. <em>“Time-integrated atmospheric control?”</em>
+            </p>
+            <p className="mb-4">
+              Blake traced a note in the margin.
+              <br />
+              <strong><em>“Two-phase correction system. ‘Trace the Flame. Harvest the Answer.’”</em></strong>
+            </p>
+            <p className="mb-4">
+              They looked at each other.
+              <br />
+              <em>“We’ve glitched,”</em> Wrem said. <em>“Something fractured the timeline. This isn’t just a natural disaster—it’s a response.”</em>
             </p>
             <p>
-              "Our instruments have detected critical anomalies in the timestream. Your mission is to investigate 
-              these disruptions and restore the proper flow of chronological events."
+              Blake clenched a fist.
+              <br />
+              <strong><em>“If time broke… then we need to fix it from both ends.”</em></strong>
             </p>
           </motion.div>
           

@@ -202,3 +202,24 @@ canvas {
     align-self: center;
     flex-shrink: 0;
 }
+.resonance-input {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 300px;
+    border: 2px solid #ff6b6b;
+    border-radius: 8px;
+    background-color: #1a1a2e;
+    color: white;
+    outline: none;
+    text-align: center;
+    align-self: center;
+}
+
+.access-denied-text {
+    margin-top: 0.5rem;
+    color: #ff4e50;
+    font-weight: bold;
+    font-size: 0.9rem;
+}

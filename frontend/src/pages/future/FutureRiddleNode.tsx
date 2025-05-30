@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import PageTransition from '../../components/PageTransition';
 
+
 interface FutureRiddleNodeProps {
   id: string;
   updateProgress?: (nodeName: string, status: boolean) => void;
@@ -15,33 +16,70 @@ const FutureRiddleNode = ({ id, updateProgress }: FutureRiddleNodeProps) => {
   const [showDialog, setShowDialog] = useState(false);
   
   // Mock data
-  const names = ["Commander Nexus", "Dr. Infinity", "Quantum Smith", "Agent Parallax", "Director Continuum"];
-  const riddles: { [key: string]: string } = {
-  "Commander Nexus": `"I dwelled in vapours, not voltages.
+ const names = [
+  "Professor Chronos",
+  "Echo Unit-7",
+  "Operator Sol",
+  "Dr Kiara",
+   "Dr. Vanta",
+  "Dr. Paradox",
+  "Architect Noema",
+  "The Clockmaker"
+ 
+  
+  
+];
+
+const riddles: { [key: string]: string } = {
+  "Professor Chronos": `"I dwelled in vapours, not voltages.
 My fingers never shaped the clouds,
 Only noted their rhythm.
 I watched the lightning, but I never beckoned it."
 `,
 
-  "Dr. Infinity": `"I walked among cooling chambers, naming embers and folding sparks.
+  "Dr Kiara": `"I walked among cooling chambers, naming embers and folding sparks.
 My work was the stillness between surges —
 No catalysts, no fault lines.
 Others lit the fires; I only traced their fade."
 `,
 
-  "Quantum Smith": `"I danced with thresholds, but never crossed them.
+  "Dr. Paradox": `"I danced with thresholds, but never crossed them.
 The math of collapse, not creation, was my gift.
 Others fanned flames —
 I wrote their obituaries."
 `,
 
-  "Agent Parallax": `"Every model I ran was bound by walls I did not build.
+  "The Clockmaker": `"Every model I ran was bound by walls I did not build.
 I was a lens, not a lever.
 Do not confuse predictive scope with responsible scale."
 `,
 
+  "Dr. Vanta": `"I mapped the silence between pulses,
+Measured nothing, until nothing spoke back.
+What I held was absence —
+And even absence can burn."
+`,
 
+  "Architect Noema": `"I drew no engines, only outlines.
+My hand never touched ignition —
+But I charted the corridors
+Where consequences travel."
+`,
+
+  "Operator Sol": `"I flipped no switches.
+I logged no heat.
+Yet every system echoed my observation.
+To witness is to alter — I altered nothing.
+And still, the echo remains."
+`,
+
+  "Echo Unit-7": `"They gave me numbers, not meanings.
+Still, I computed echoes from before the spark.
+I was last to shut down.
+Even silence logged my code."
+`
 };
+
 
   
   // Culprit is always the fourth name for this example
@@ -52,20 +90,9 @@ Do not confuse predictive scope with responsible scale."
     setShowDialog(true);
   };
   
-  const handleFoundCulprit = () => {
-    if (selectedName === culprit) {
-      if (updateProgress) {
-        updateProgress(id, true);
-      }
-      setShowDialog(false);
+    const handleBackToExplore = () => {
+      updateProgress?.(id, true);
       navigate('/journey/future');
-    } else {
-      setAnswer("You know I am not the culprit");
-      setTimeout(() => {
-        setShowDialog(false);
-        setAnswer('');
-      }, 2000);
-    }
   };
 
   return (
@@ -127,7 +154,7 @@ Do not confuse predictive scope with responsible scale."
             transition={{ delay: 0.3, duration: 0.5 }}
             style={{ textShadow: "0 0 10px rgba(99,102,241,0.5)" }}
           >
-            Suspect Database
+            Retirement Notes
           </motion.h2>
           
           <motion.p 
@@ -136,8 +163,7 @@ Do not confuse predictive scope with responsible scale."
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            One of these individuals is linked to the temporal distortion event.
-            Identify the perpetrator to continue your investigation.
+            Here is the list of our valued team members who gave their dedication to Project Ignis—kudos to each one. Each has left behind a few words, reflections of their time with the project.
           </motion.p>
           
           <motion.ul className="space-y-4 mb-6">
@@ -168,9 +194,20 @@ Do not confuse predictive scope with responsible scale."
               <div className="w-2 h-2 rounded-full bg-indigo-500 mr-2 animate-pulse"></div>
               <span>SYSTEM READY</span>
             </div>
-            <div>{'>'} SELECT SUSPECT TO INTERROGATE</div>
+            <div>{'>'} THANKS FOR YOUR DEDICATION</div>
           </div>
+
+          <div className="text-center">
+              <button
+                
+                onClick={handleBackToExplore}className="px-6 py-3 bg-indigo-900 text-white rounded hover:bg-Indigo-800 transition m-5 border border-indigo-600"
+              >
+                Back to explore
+              </button>
+            </div>
         </motion.div>
+
+        
         
         {/* Dialog box for riddle */}
         {showDialog && (

@@ -140,40 +140,47 @@ const HeartStone: React.FC = () => {
 }, []);
 return (
     <div ref={mountRef} className="heartstone-container">
-        <div className="info-box">
-            <h2>The Heart Stone</h2>
-            <p>Click and drag to rotate, scroll to zoom.</p>
-            <p>This stone embodies concentrated life force, crucial for 'Operation: Verdant Dawn'.</p>
-        </div>
+        
+            <h2 className="text-center text-[#ff6b6b] text-2xl font-semibold mb-4 m">The Heart Stone</h2>
 
+            
         {!showPrompt && (
             <button className="access-button" onClick={() => setShowPrompt(true)}>
                 ACCESS HERE
             </button>
         )}
+{showPrompt && (
+    <div className="soothing-message-box">
+        <div className="soothing-text">
+            <p>“The stone responds only to its first resonance.</p>
+            <p>Not the code, not the key, but the echo I imprinted —</p>
+            <p>A phrase that tethered it to time itself.</p>
+            <p>Only that can stir its core.”</p>
+        </div>
 
-        {showPrompt && (
-            <div className="soothing-message-box">
-                <div className="soothing-text">
-                    <p>In the heart of stillness lies a force untamed.</p>
-                    <p>It pulses not with chaos, but with purpose.</p>
-                    <p>Where light meets silence, the Heart Stone listens.</p>
-                    <p>Each flicker is a whisper from eons past.</p>
-                    <p>Not all treasures are guarded by flame.</p>
-                    <p>Some await only the seeker who slows down.</p>
-                    <p>Read the winds, feel the hum of the ether.</p>
-                    <p>The stone remembers. The stone waits.</p>
-                    <p>Let not haste blind your passage.</p>
-                    <p>Peace is the key. The future, the door.</p>
-                </div>
-                <button
-                    className="proceed-now-button"
-                    onClick={() => navigate('/journey/future')}
-                >
-                    PROCEED NOW
-                </button>
-            </div>
+        <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Enter the key to unlock"
+            className="resonance-input"
+        />
+
+        <button 
+        onClick={() =>
+          navigate('/journey/future/final', { state: { enableFinalPortal: true } })
+        }
+        className="mt-10 px-8 py-4 bg-pink-600 hover:bg-pink-500 text-white font-semibold rounded-full shadow-lg transition"
+      >
+        Proceed Now
+      </button>
+
+        {accessDenied && (
+            <p className="access-denied-text">❌ The stone remains still. That is not the echo.</p>
         )}
+    </div>
+)}
+
     </div>
 );
 

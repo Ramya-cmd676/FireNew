@@ -13,19 +13,24 @@ const RiddleNode = ({ id, updateProgress }: RiddleNodeProps) => {
   const [stage, setStage] = useState<'intro' | 'content'>('intro');
   const [selectedName, setSelectedName] = useState<string | null>(null);
   const [showDialog, setShowDialog] = useState(false);
+  const [clickedNames, setClickedNames] = useState<string[]>([]);
+const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
 
-  const names = ["Professor Chronos", "Lady Tempest", "Dr. Paradox", "The Clockmaker", "Timekeeper"];
+
+  const names = ["Professor Chronos", "Dr Kiara", "Dr. Paradox", "The Clockmaker"];
   const culprit = names[2]; // Dr. Paradox
 
   const riddles: Record<string, string> = {
-    "Professor Chronos": `"When glass forgets its form, it reflects not truth but hunger.
-I stood beneath a sun I summoned, curious if light obeyed.
-There were no flames — only thresholds crossed.
-Yet heat remembers what pride wishes to forget."
-`,
-    "Lady Tempest": `"Winds hold secrets between pulses — I charted their language.
+    "Professor Chronos": `"Winds hold secrets between pulses — I charted their language.
 Access was sought for patterns, not persuasion.
 If thunder followed, it followed me, not because of me."
+
+`,
+    "Dr Kiara": `"When glass forgets its form, it reflects not truth but hunger.
+I stood beneath the sun I summoned, curious if light obeyed.
+There were no flames — only thresholds crossed.
+Yet heat remembers what pride wishes to forget."
+
 `,
     "Dr. Paradox": `"What defines a spark if not its decision to fade?
 I petitioned entry to study retreat — the breath after ignition.
@@ -39,14 +44,29 @@ If causality rippled, it did so in theory, not in deed."
   };
 
   const handleNameClick = (name: string) => {
-    setSelectedName(name);
-    setShowDialog(true);
-  };
+  setSelectedName(name);
+  setShowDialog(true);
+  setClickedNames(prev =>
+    prev.includes(name) ? prev : [...prev, name]
+  );
+};
+
 
   const handleFoundCulprit = () => {
-      updateProgress?.(id, true);
-      navigate('/journey/past');
-  };
+  if (clickedNames.length < names.length) {
+    setFeedbackMessage("Explore all logs before concluding who caused the anomaly.");
+    return;
+  }
+
+  setFeedbackMessage("You may now proceed to uncover the mistakes of the culprit — and the reasons behind them — by entering the password \"Culprit\" to access their answers.");
+
+  // Optional: Add a delay before navigating, or use a button to confirm
+  setTimeout(() => {
+    updateProgress?.(id, true);
+    navigate('/journey/past');
+  }, 8000);
+};
+
 
   const handleNextFromIntro = () => {
     setStage('content');
@@ -68,15 +88,19 @@ If causality rippled, it did so in theory, not in deed."
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
             >
-              <h1 className="text-4xl font-serif font-bold text-amber-900 mb-4">The Time Tangle</h1>
+              <h1 className="text-4xl font-serif font-bold text-amber-900 mb-4">Log Book</h1>
               <p className="text-lg text-amber-800 mb-6">
-                A mysterious disturbance has warped the fabric of time. Hidden in the folds of history lies the one who caused it.
+                Blake stood inside the research facility, now anchored in a time before everything went wrong. The space was active, pristine, and alive with quiet energy.
+
+On a console near the entrance, a security logbook displayed recent access records. Blake scanned the entries from the day it all began. Four names stood out—each logged in just hours before the anomaly.
               </p>
+              <p className="text-lg text-amber-800 mb-6">Blake quickly noted them and initiated a transmission through the temporal link to Wrem.</p>
+              <p className="text-lg text-amber-800 mb-6"><em>"Found four names tied to the event. Sending them now. See what you can find on your end."</em></p>
               <button
                 onClick={handleNextFromIntro}
                 className="px-6 py-3 bg-amber-700 text-white rounded hover:bg-amber-800 transition"
               >
-                Next
+                View the records
               </button>
             </motion.div>
           )}
@@ -89,10 +113,9 @@ If causality rippled, it did so in theory, not in deed."
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-serif font-bold mb-6 text-center text-amber-900">List of Suspects</h2>
+            <h2 className="text-3xl font-serif font-bold mb-6 text-center text-amber-900">Logs</h2>
             <p className="text-center italic text-amber-800 mb-8">
-              One of these individuals is responsible for the temporal disturbance.
-              Identify the culprit to continue your journey.
+              The list included not just the names of the last people logged in, but brief notes on their actions—why they accessed the facility that day, and what part of the system they engaged with. 
             </p>
 
             <ul className="space-y-4 mb-6">
@@ -122,6 +145,16 @@ If causality rippled, it did so in theory, not in deed."
                 Found the Culprit
               </button>
             </div>
+            {feedbackMessage && (
+  <motion.div
+    className="mt-6 text-center text-amber-800 font-medium bg-amber-100 border border-amber-300 px-4 py-2 rounded"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+  >
+    {feedbackMessage}
+  </motion.div>
+)}
+
           </motion.div>
         )}
 

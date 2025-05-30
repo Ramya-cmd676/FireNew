@@ -85,20 +85,29 @@ const Present = () => {
               Congratulations, {username}. You've successfully navigated through the disrupted timelines 
               and restored the natural flow of time.
             </p>
-            <p>
-              The chaos has subsided, and both past and future exist in harmony once more. 
-              Your journey through time has left you with wisdom few will ever possess.
-            </p>
+            
+
+<motion.div
+  
+  className="text-center mt-10 px-6 max-w-3xl mx-auto text-amber-100 font-serif leading-relaxed"
+>
+  <p className="text-lg italic">
+    Blake and Wren exchange one final message:<br />
+    <span className="text-amber-300 font-semibold">
+      “The past may carry cracks. But it’s the future that chooses whether they become scars... or strength.”
+    </span><br /><br />
+    The fire rain ceases, like tears no longer needed.<br />
+    Time’s fractures seal in silence.<br />
+    The glitch dissolves, a ghost set free.<br />
+    And the world, once forgotten, begins to remember—<br />
+    not just what it lost...<br />
+    but what it almost became.
+  </p>
+</motion.div>
+
           </motion.div>
           
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 3, duration: 0.8 }}
-          >
-            <p className="text-lg text-blue-100">Thank you for experiencing the Time Voyager Event</p>
-          </motion.div>
+          
         </motion.div>
       </div>
     </PageTransition>

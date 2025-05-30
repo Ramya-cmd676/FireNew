@@ -6,7 +6,7 @@ import PageTransition from '../../components/PageTransition';
 const FinalNode = () => {
   const [answer, setAnswer] = useState('');
   const [error, setError] = useState('');
-  const correctAnswer = 'chronos'; // Example answer
+  const correctAnswer = 'vision'; // Example answer
   const navigate = useNavigate();
   
   const handleSubmit = (e: React.FormEvent) => {
@@ -68,15 +68,12 @@ const FinalNode = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            You stand before the ancient gateway of time. To pass through and restore the timeline, 
-            you must speak the name of the primordial keeper of time.
+            What was the final solution?
           </motion.p>
           
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="answer" className="block text-amber-200 text-sm font-medium mb-2">
-                Enter the name:
-              </label>
+              
               <input
                 type="text"
                 id="answer"
@@ -115,7 +112,7 @@ const FinalNode = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
           >
-            Hint: In Greek mythology, who was the personification of time?
+            Hint: The last answer you solved before chronicle portal opened in future
           </motion.div>
         </motion.div>
         

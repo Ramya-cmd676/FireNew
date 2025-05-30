@@ -15,7 +15,7 @@ const FindingHeartStone = () => {
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value);
 
   const handleNext = () => {
-    if (input.trim().toLowerCase() === 'answer') {
+    if (input.trim().toLowerCase() === 'heartstone') {
       setStep(2);
     }
   };
@@ -38,7 +38,11 @@ const FindingHeartStone = () => {
           <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 shadow-xl max-w-md w-full text-center">
             {step === 1 ? (
               <>
-                <p className="mb-4 text-lg">Enter the final code:</p>
+                <p className="mb-4 text-lg"><em>I am the rhythm in ruins, the silence that stays.
+                  {"\n"}I do not burn, I do not bend.
+                  {"\n"}One half remembers, one half endures.
+                  {"\n"}Name what feels, name what holds—
+                  {"\n"}combine them, and you will know me</em></p>
                 <input
                   type="text"
                   value={input}
@@ -55,7 +59,17 @@ const FindingHeartStone = () => {
               </>
             ) : (
               <>
-                <p className="mb-4 text-xl">You're ready for the future.</p>
+                <p className="mb-6 text-sm text-white/80 leading-relaxed whitespace-pre-line">
+  You’ve named what I am...
+  {"\n"}But where do I rest?
+  {"\n"}Not in the earth, nor in the deep—
+  {"\n"}but where the air forgets to sleep.
+  {"\n"}Above the hush where circuits fade,
+  {"\n"}I glow where no shadow is made.
+  {"\n"}A silent crown, encased in glass,
+  {"\n"}I wait where sky and signal pass.
+</p>
+
                 <button
                   onClick={handleExplore}
                   className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded text-white"

@@ -71,7 +71,7 @@ const [password, setPassword] = useState('');
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400">
-                Time Voyager
+                The Vault of Time
               </span>
             </motion.h1>
             <motion.p 
@@ -80,7 +80,7 @@ const [password, setPassword] = useState('');
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              Journey through the cosmos of time
+              Where the past meets the future...
             </motion.p>
           </div>
 
@@ -130,7 +130,7 @@ const [password, setPassword] = useState('');
 
           <div className="mt-6 text-center">
             <p className="text-purple-200 text-sm">
-              A cosmic adventure awaits beyond this portal
+              The Adventure Awaits Beyond This Portal
             </p>
           </div>
         </div>

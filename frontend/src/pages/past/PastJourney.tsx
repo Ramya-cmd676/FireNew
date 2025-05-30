@@ -40,18 +40,19 @@ const PastJourney = () => {
   };
 
   const nodes = [
-    { id: 'node1', label: 'Ancient Scroll', x: 20, y: 30, color: 'amber' },
-    { id: 'node2', label: 'Culprit List', x: 75, y: 20, color: 'red' },
-    { id: 'node3', label: 'Detective Lab', x: 60, y: 70, color: 'emerald' },
+    
+    { id: 'node2', label: 'Log Book', x: 75, y: 20, color: 'red' },
+    
     { id: 'node4', label: 'Clue Vault', x: 30, y: 85, color: 'purple' },
-    { id: 'name1', label: 'Name1', x: 10, y: 50, color: 'blue' },
-    { id: 'name2', label: 'Name2', x: 85, y: 50, color: 'amber' },
-    { id: 'name3', label: 'Name3', x: 40, y: 15, color: 'emerald' },
-    { id: 'name4', label: 'Name4', x: 55, y: 90, color: 'blue' },
+    { id: 'name1', label: 'Professor Chronos', x: 10, y: 50, color: 'blue' },
+    { id: 'name2', label: 'Dr Kiara', x: 85, y: 50, color: 'amber' },
+    { id: 'name3', label: 'Dr. Paradox', x: 40, y: 15, color: 'emerald' },
+    { id: 'name4', label: 'The Clockmaker', x: 80, y: 80, color: 'blue' },
     { id: 'final', label: 'Timeline Gate', x: 50, y: 50, color: 'blue', isLarge: true },
   ];
 
   return (
+
     <>
       <Routes>
         <Route
@@ -71,7 +72,7 @@ const PastJourney = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                   >
-                    The Ancient Chronicles
+                    The Past
                   </motion.h1>
                   <motion.p
                     className="text-center text-amber-100 mb-12 max-w-2xl mx-auto"
@@ -79,7 +80,7 @@ const PastJourney = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
-                    Explore the nodes of history to unravel the temporal anomaly
+                    Explore the past, meet the future, and unravel the mysteries of time.
                   </motion.p>
                   <div className="relative h-[60vh] w-full max-w-4xl mx-auto">
                     {nodes.map((node) => (
@@ -88,16 +89,12 @@ const PastJourney = () => {
                         className={`absolute cursor-pointer`}
                         style={{ left: `${node.x}%`, top: `${node.y}%` }}
                         initial={{ opacity: 0, scale: 0 }}
-                        animate={{
-                          opacity: node.id === 'final' && !Object.values(progress).every(Boolean) ? 0.5 : 1,
-                          scale: 1,
-                        }}
+                        animate={{ opacity: 1, scale: 1 }}
+
                         transition={{ duration: 0.5, delay: Math.random() * 0.5 }}
                         whileHover={{ scale: 1.1 }}
-                        onClick={() => {
-                          if (node.id === 'final' && !Object.values(progress).every(Boolean)) return;
-                          navigate(`/journey/past/${node.id}`);
-                        }}
+                        onClick={() => navigate(`/journey/past/${node.id}`)}
+
                       >
                         <div
                           className={`
