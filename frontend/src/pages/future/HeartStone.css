@@ -1,0 +1,204 @@
+.heartstone-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    position: relative;
+}
+
+canvas {
+    display: block;
+}
+
+.info-box {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 300px;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.info-box h2 {
+    margin-top: 0;
+    color: #ff6b6b;
+    font-size: 1.2em;
+}
+
+.access-button {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff6b6b;
+    border: none;
+    padding: 15px 30px;
+    color: white;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 107, 107, 0.4);
+    transition: all 0.3s ease;
+}
+
+.access-button:hover {
+    background-color: #ff3b3b;
+    box-shadow: 0 6px 12px rgba(255, 107, 107, 0.6);
+}
+
+.access-denied-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    max-width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: #ff4c4c;
+    border: 2px solid #ff4c4c;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    animation: shake 0.6s ease, glow-pulse 1s infinite alternate;
+}
+
+.input-section {
+    margin-top: 20px;
+}
+
+.input-section p {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.input-section input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background-color: #222;
+    color: #fff;
+}
+
+@keyframes shake {
+    0% { transform: translate(-50%, -50%) translateX(0); }
+    25% { transform: translate(-50%, -50%) translateX(-5px); }
+    50% { transform: translate(-50%, -50%) translateX(5px); }
+    75% { transform: translate(-50%, -50%) translateX(-5px); }
+    100% { transform: translate(-50%, -50%) translateX(0); }
+}
+
+@keyframes glow-pulse {
+    from { box-shadow: 0 0 10px #ff4c4c; }
+    to { box-shadow: 0 0 25px #ff4c4c, 0 0 40px #ff4c4c88; }
+}
+.heartstone-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Info box in corner */
+.info-box {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 320px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 16px;
+    border-radius: 10px;
+}
+
+/* General button styling */
+.access-button {
+    background: #FF69B4;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect */
+.access-button:hover {
+    background: rgb(243, 106, 175);
+}
+
+/* Centered button at bottom for "ACCESS HERE" */
+.access-button {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Soothing message box */
+.soothing-message-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(46, 26, 44, 0.2);
+
+    border-radius: 16px;
+    max-width: 90vw;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+    gap:10px;
+}
+
+/* Scrollable text wrapper */
+.soothing-text {
+    overflow-y: auto;
+    max-height: 30vh;
+
+    width: 100%;
+       scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer and Edge */
+}
+
+.soothing-text::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+}
+
+/* Poem text */
+.soothing-text p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* Proceed button placed clearly below text */
+.proceed-now-button {
+    margin-top: 16px;
+     background: #FF69B4;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    max-width: 250px;
+    align-self: center;
+    flex-shrink: 0;
+}
