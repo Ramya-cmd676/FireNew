@@ -167,8 +167,12 @@ return (
         />
 
         <button 
-        onClick={() =>
-          navigate('/journey/future/final', { state: { enableFinalPortal: true } })
+        onClick={() => {
+            if (input.trim().toLowerCase() === 'vision') {
+      navigate('/journey/future/final', { state: { enableFinalPortal: true } })}
+    }
+            
+          
         }
         className="mt-10 px-8 py-4 bg-pink-600 hover:bg-pink-500 text-white font-semibold rounded-full shadow-lg transition"
       >
@@ -176,7 +180,7 @@ return (
       </button>
 
         {accessDenied && (
-            <p className="access-denied-text">❌ The stone remains still. That is not the echo.</p>
+            <p className="access-denied-text"> The stone remains still. That is not the echo.</p>
         )}
     </div>
 )}

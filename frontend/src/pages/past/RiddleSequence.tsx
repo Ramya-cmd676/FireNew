@@ -13,39 +13,38 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
   const [loaded, setLoaded] = useState(false);
   const [narrativeStage, setNarrativeStage] = useState(0); // 0 = riddles, 1/2 = story steps
 
-  
-    const riddleSets = {
+const riddleSets = {
   name1: {
     riddles: [
-      'When storms of time begin to roar,\nI shield the gate, I guard the core.\nI mend what’s cracked, I stand alone—\nWho am I in flesh and bone?',
-      'I moved through time to fix the pain,\nNot for power, nor for gain.\nI bent the laws, I cracked the flow—\nWhat did I cause, that all now know?',
-      'I reached through time, ignored the cost,\nHoping to regain what I had lost.\nBut even hope, when left unchecked,\nCan turn to ruin. What was my wreck?'
+      "I stood when time began to break,\nI held the line for others’ sake.\nThrough fractured storms, I stayed in place—\nThey called me this, their final brace.",
+      "I tampered with the woven thread,\nThinking I could fix what bled.\nBut every step unspooled control—\nAnd birthed this wound upon the whole.",
+      "I reached across what should not bend,\nIn search of love I could defend.\nBut that pure hope, without restraint,\nLed only to this cruel complaint."
     ],
-    answers: ['Guardian', 'Distortion', 'Desperation'],
+    answers: ["Guardian", "Distortion", "Desperation"],
   },
   name2: {
     riddles: [
-      'Tick by tick, I hold the beat,\nOf past and future where they meet.\nI never stop, I never stray—\nWhat marks the flow I guard each day?',
-      'When time is twisted, out of line,\nI restore the grand design.\nBalance is my steady guide—\nWhat do I bring when tides divide?',
-      'Neither lost nor yet to be,\nI live where all can truly see.\nBetween the ends, I hold the key—\nWhat part of time do I decree?'
+      "I watched the hands go ‘round each day,\nTheir ticking never lost their way.\nI kept the rhythm without pride—\nThis name became the role I bide.",
+      "When time unspooled and chaos grew,\nI worked to guide it back to true.\nI restored the shape without reward—\nMy oath was bound to this one word.",
+      "I chose to live between the streams,\nNot in the past or future dreams.\nThe only moment that I defend—\nThis is the place I never end."
     ],
-    answers: ['Clock', 'Order', 'Present'],
+    answers: ["Clock", "Order", "Present"],
   },
   name3: {
     riddles: [
-      'Behind my care, a secret face,\nI broke the rules to find some grace.\nWho hid behind the healer’s mask,\nTo shatter time for a doomed task?',
-      'I come and go but leave a mark,\nA trail behind in places dark.\nYou cannot touch or hold me tight,\nYet I am seen in fading light.\nWhat am I?',
-      'I shine so bright but hold no flame,\nIn every room, you know my name.\nFlip a switch, and there I glow,\nWithout me, darkness starts to grow.\nWhat am I?'
+      "They saw a healer, calm and kind,\nBut didn’t see the cracks behind.\nI broke the code, I crossed the line—\nTo chase what couldn’t still be mine.",
+      "I came and went but left a trace,\nA whisper trailing into space.\nThey never saw me clearly then—\nYet followed me again, again.",
+      "You’d never know just what I am,\nBut I appear with every lamp.\nThey flip a switch and call me near—\nWithout me, only dark is clear."
     ],
-    answers: ['Traitor', 'Shadow', 'bulb'],
+    answers: ["Traitor", "Shadow", "Bulb"],
   },
   name4: {
     riddles: [
-      'I vanish fast, yet shape the day,\nA trace that thought cannot delay.\nOnce recalled, I lose my name—\nBut still, you play my fleeting game.\nWhat am I?',
-      'I clear the slate, dissolve the line,\nA moment stretched, outside of time.\nNot end, not start — just space to mend,\nWhere timelines break and sometimes bend.\nWhat am I?',
-      'I start again when I should end,\nA trail that curves and won’t descend.\nYou walk my path and find no rest,\nEach turn returns you to the test.\nWhat am I?'
+      "I clung to moments fading fast,\nBut couldn’t hold the ones that passed.\nThey echoed faintly in my mind—\nYet every time, I failed to find.",
+      "I made a space where time could heal,\nSuspended just beyond what’s real.\nNo forward step, no backward fall—\nI offered pause amidst it all.",
+      "They tried to end what spun too far,\nBut still it turned beneath the stars.\nI watched them circle back again—\nTrapped inside what could not end."
     ],
-    answers: ['Memory', 'Reset', 'Loop'],
+    answers: ["Memory", "Reset", "Loop"],
   },
 };
 
@@ -68,8 +67,7 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
   };
 
   const handleRiddleAnswer = () => {
-    if (input.trim().toLowerCase() === answers[riddleIndex].toLowerCase())
- {
+    if (input.trim().toLowerCase() === answers[riddleIndex].toLowerCase()) {
       if (riddleIndex < riddles.length - 1) {
         setRiddleIndex(riddleIndex + 1);
         setInput('');
@@ -100,6 +98,21 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
 
   const handleResultAcknowledgment = () => {
     navigate('/journey/past');
+  };
+
+  // Determine heading dynamically
+  const getHeadingText = () => {
+    if (narrativeStage === 1 ) {
+      return 'She confessed:';
+    }
+    if(narrativeStage===2){
+      return 'Since I am at fault, and you are here to solve, let me tell you the password for Project Ignis which might help you'
+    }
+    if (accessGranted && riddleIndex < 3) {
+      return 'Solve these to understand the actual mistake';
+    }
+
+    return 'Restricted Node Access';
   };
 
   return (
@@ -138,19 +151,9 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
           animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 40 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-6 text-cyan-300"
-            animate={{
-              textShadow: [
-                '0 0 10px #22d3ee',
-                '0 0 20px #22d3ee',
-                '0 0 10px #22d3ee',
-              ],
-            }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            {accessGranted ? 'Solve the Riddles' : 'Restricted Node Access'}
-          </motion.h1>
+          <h1 className="text-2xl md:text-3xl font-semibold mb-6 text-cyan-300">
+            {getHeadingText()}
+          </h1>
 
           <motion.div
             className="text-lg md:text-xl p-6 mb-6 backdrop-blur-md bg-black/40 rounded-lg border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
@@ -158,10 +161,9 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            {/* Narratives */}
             {narrativeStage === 1 && (
               <>
-                <p className="italic text-cyan-300 mb-6">
+                                <p className="italic text-cyan-300 mb-6">
                   “The model was never static. I thought I was bending moisture — not chronology. I initiated a rainfall
                   projection calibrated for 2040... but something reverberated beyond it. The simulation echoed, not forward or
                   backward, but outward — And time, as if stretched too thin, retaliated. One decade fell into drought, another
@@ -180,9 +182,7 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
             {narrativeStage === 2 && (
               <>
                 <p className="text-cyan-200 mb-6">
-                  Temporal resonance had never been a confirmed phenomenon. It was a theory buried beneath warning labels and
-                  shelved equations. But here was proof. Not only had the Ignis system bent the weather — it had fractured the
-                  architecture of time itself. The present was not broken by chance. It was broken by consequence.
+                  Temporal resonance had never been a confirmed phenomenon... The present was not broken by chance. It was broken by consequence.
                 </p>
                 <button
                   className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded text-white"
@@ -193,7 +193,6 @@ const RiddleSequence = ({ label, updateProgress, culpritName }) => {
               </>
             )}
 
-            {/* Riddle logic */}
             {!accessGranted && !showResult && narrativeStage === 0 && (
               <>
                 <p className="mb-4">Enter the keyword to begin your investigation.</p>

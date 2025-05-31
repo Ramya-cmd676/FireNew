@@ -38,11 +38,11 @@ const FindingHeartStone = () => {
           <div className="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 shadow-xl max-w-md w-full text-center">
             {step === 1 ? (
               <>
-                <p className="mb-4 text-lg"><em>I am the rhythm in ruins, the silence that stays.
-                  {"\n"}I do not burn, I do not bend.
-                  {"\n"}One half remembers, one half endures.
-                  {"\n"}Name what feels, name what holds—
-                  {"\n"}combine them, and you will know me</em></p>
+                <p className="mb-4 text-lg"><em> One half beats,  
+
+                  {"\n"}the other is carved—combine them,
+                  {"\n"}and you’ll find me 
+                  </em></p>
                 <input
                   type="text"
                   value={input}
