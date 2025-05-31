@@ -54,8 +54,8 @@ const FutureJourney = () => {
 
   const nodes = [
     
-    { id: 'node2', label: 'Former Staff of Project Ignis', x: 70, y: 15, color: 'indigo' },
-    { id: 'node3', label: 'Project Ignis', x: 25, y: 25, color: 'emerald' },
+    { id: 'node2', label: 'Retired Staff - Project Ignis', x: 70, y: 75, color: 'indigo' },
+    { id: 'node3', label: 'Project Ignis', x: 25, y: 25, color: 'purple' },
     
     { id: 'final', label: 'Chronos Portal', x: 50, y: 40, color: 'blue', isLarge: true },
   ];
@@ -129,7 +129,7 @@ const FutureJourney = () => {
                     transition={{ duration: 0.8 }}
                     style={{ textShadow: '0 0 15px rgba(59,130,246,0.5)' }}
                   >
-                    Neo-Chronos City
+                    The Future
                   </motion.h1>
 
                   <motion.p
@@ -138,7 +138,7 @@ const FutureJourney = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
-                    Navigate the future&apos;s network to reset the temporal anomaly
+                    Explore the Future, meet the past, and unravel mystery of time!
                   </motion.p>
 
                   <div className="relative h-[60vh] w-full max-w-4xl mx-auto">

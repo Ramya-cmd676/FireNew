@@ -167,19 +167,19 @@ const TimeMachine = () => {
     “There’s only enough charge for two jumps,” Blake said, reading the console. “One to the past. One to the future. No more.”
   </p>
   <p className="mb-3">
-    Wrem nodded. “I’ll go forward. If the future’s healed, it must have the answer. You go backward. Find out what caused all this.”
+    Wren nodded. “I’ll go forward. If the future’s healed, it must have the answer. You go backward. Find out what caused all this.”
   </p>
   <p className="mb-3">
-    They both hesitated. Blake touched Wrem’s hand. “We stay connected,” Blake said.
+    They both hesitated. Blake touched Wren’s hand. “We stay connected,” Blake said.
   </p>
   <p className="mb-3">
-    Wrem smirked. “You’ll probably need my help anyway.”
+    Wren smirked. “You’ll probably need my help anyway.”
   </p>
   <p className="mb-3">
     They activated the pods. A final moment. The fire rain roared outside, yet time stood still between them.
   </p>
   <p className="mb-3 italic text-cyan-300">
-    “See you in the now,” Wrem whispered.
+    “See you in the now,” Wren whispered.
   </p>
   <p className="mb-3">
     The pods began to glow. The air crackled. Somewhere, the broken hourglass turned.

@@ -192,7 +192,8 @@ const riddleSets = {
 </em></p>
 
                 <button
-                  className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded text-white"
+                  className="bg-white/80 hover:bg-white
+                   px-4 py-2 rounded text-black text-center"
                   onClick={handleNextNarrative}
                 >
                   Next
@@ -222,7 +223,7 @@ const riddleSets = {
             {accessGranted && !showResult && narrativeStage === 0 && (
               <>
                 <p className="mb-4">
-                  <strong>Riddle {riddleIndex + 1}:</strong> {riddles[riddleIndex]}
+                  <strong></strong> {riddles[riddleIndex]}
                 </p>
                 <input
                   className="w-full p-2 text-black rounded mb-4"
@@ -232,10 +233,10 @@ const riddleSets = {
                   placeholder="Your Answer..."
                 />
                 <button
-                  className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded text-white"
-                  onClick={handleRiddleAnswer}
-                >
-                  Submit Answer
+className="bg-teal-700 hover:bg-teal-600 px-4 py-2 rounded text-white shadow-md hover:shadow-[0_0_15px_rgba(13,148,136,0.7)] transition-all duration-300"
+  onClick={handleRiddleAnswer}
+>
+                  Submit 
                 </button>
               </>
             )}
@@ -245,7 +246,7 @@ const riddleSets = {
                 <p className="mb-4 text-red-400">Sorry, I am not the culprit. You wasted your time.</p>
                 <p className="mb-6">Try visiting the Culprit List again and find the real one.</p>
                 <button
-                  className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded text-white"
+                  className="bg-cyan-700 hover:bg-cyan-900 px-4 py-2 rounded text-white"
                   onClick={handleResultAcknowledgment}
                 >
                   Return

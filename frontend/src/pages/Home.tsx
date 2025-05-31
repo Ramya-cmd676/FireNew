@@ -49,9 +49,9 @@ const Home = () => {
 >
   <p><strong>Blake stood</strong> at the edge of the balcony, eyes fixed on the horizon.</p>
 
-  <p><em>“Wrem,”</em> Blake called softly, <em>“you need to see this.”</em></p>
+  <p><em>“Wren,”</em> Blake called softly, <em>“you need to see this.”</em></p>
 
-  <p>Wrem joined Blake moments later, groggy and half-asleep. But the sleep <strong>vanished</strong> as Wrem’s eyes caught the sky.</p>
+  <p>Wren joined Blake moments later, groggy and half-asleep. But the sleep <strong>vanished</strong> as Wren’s eyes caught the sky.</p>
 
   <p>The clouds were not clouds at all—<strong>but burning ribbons of red</strong>, licking downward like fire descending from heaven.</p>
 
@@ -61,11 +61,11 @@ const Home = () => {
 
   <p className="mt-6"><strong>No sirens.</strong> <br /><strong>No birds.</strong> <br />Only silence—<em>and falling fire.</em></p>
 
-  <p><em>“What the hell…?”</em> Wrem whispered.</p>
+  <p><em>“What the hell…?”</em> Wren whispered.</p>
 
   <p>They ran into the street. The fire didn’t touch them. <br />It <em>danced</em> around their footsteps, avoided their skin.</p>
 
-  <p>The entire world burned—<strong>but not Blake and Wrem.</strong></p>
+  <p>The entire world burned—<strong>but not Blake and Wren.</strong></p>
 
   <p><em>“What’s happening?!”</em> Blake shouted to no one.</p>
 

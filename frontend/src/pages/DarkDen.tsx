@@ -93,7 +93,7 @@ const DarkDen = () => {
               Inside: <strong>blueprints</strong>.
             </p>
             <p className="mb-4">
-              <em>“Project Ignis,”</em> Wrem read aloud. <em>“Time-integrated atmospheric control?”</em>
+              <em>“Project Ignis,”</em> Wren read aloud. <em>“Time-integrated atmospheric control?”</em>
             </p>
             <p className="mb-4">
               Blake traced a note in the margin.
@@ -103,7 +103,7 @@ const DarkDen = () => {
             <p className="mb-4">
               They looked at each other.
               <br />
-              <em>“We’ve glitched,”</em> Wrem said. <em>“Something fractured the timeline. This isn’t just a natural disaster—it’s a response.”</em>
+              <em>“We’ve glitched,”</em> Wren said. <em>“Something fractured the timeline. This isn’t just a natural disaster—it’s a response.”</em>
             </p>
             <p>
               Blake clenched a fist.

@@ -61,10 +61,10 @@ const PastJourney = () => {
             <PageTransition transition="fade">
               <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-amber-900/20">
-                  <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
+                  <div className="absolute inset-0 bg-[url('/pastbg.png')] "></div>
                   <div className="absolute inset-0 bg-gradient-to-b from-amber-900/40 to-amber-950/70"></div>
                 </div>
-                <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1097930/pexels-photo-1097930.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover opacity-20 mix-blend-multiply"></div>
+                
                 <div className="relative z-10 w-full h-full p-6">
                   <motion.h1
                     className="text-center text-4xl md:text-5xl font-serif font-bold mb-6 text-amber-200"
