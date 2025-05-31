@@ -53,10 +53,10 @@ const FutureJourney = () => {
   };
 
   const nodes = [
-    { id: 'node1', label: 'Hologram Archive', x: 25, y: 25, color: 'cyan' },
+    
     { id: 'node2', label: 'Former Staff of Project Ignis', x: 70, y: 15, color: 'indigo' },
-    { id: 'node3', label: 'Project Ignis', x: 75, y: 70, color: 'emerald' },
-    { id: 'node4', label: 'Quantum Vault', x: 20, y: 65, color: 'violet' },
+    { id: 'node3', label: 'Project Ignis', x: 25, y: 25, color: 'emerald' },
+    
     { id: 'final', label: 'Chronos Portal', x: 50, y: 40, color: 'blue', isLarge: true },
   ];
 

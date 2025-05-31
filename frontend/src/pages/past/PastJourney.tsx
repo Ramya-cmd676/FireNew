@@ -43,11 +43,11 @@ const PastJourney = () => {
     
     { id: 'node2', label: 'Log Book', x: 75, y: 20, color: 'red' },
     
-    { id: 'node4', label: 'Clue Vault', x: 30, y: 85, color: 'purple' },
+    
     { id: 'name1', label: 'Professor Chronos', x: 10, y: 50, color: 'blue' },
     { id: 'name2', label: 'Dr Kiara', x: 85, y: 50, color: 'amber' },
     { id: 'name3', label: 'Dr. Paradox', x: 40, y: 15, color: 'emerald' },
-    { id: 'name4', label: 'The Clockmaker', x: 80, y: 80, color: 'blue' },
+    { id: 'name4', label: 'The Clockmaker',  x: 30, y: 85, color: 'purple' },
     { id: 'final', label: 'Timeline Gate', x: 50, y: 50, color: 'blue', isLarge: true },
   ];
 

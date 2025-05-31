@@ -106,7 +106,7 @@ const riddleSets = {
       return 'She confessed:';
     }
     if(narrativeStage===2){
-      return 'Since I am at fault, and you are here to solve, let me tell you the password for Project Ignis which might help you'
+      return ``
     }
     if (accessGranted && riddleIndex < 3) {
       return 'Solve these to understand the actual mistake';
@@ -151,9 +151,10 @@ const riddleSets = {
           animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 40 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-2xl md:text-3xl font-semibold mb-6 text-cyan-300">
-            {getHeadingText()}
-          </h1>
+          <h1 className="text-xl md:text-xl font-medium mb-4 text-cyan-200">
+  {getHeadingText()}
+</h1>
+
 
           <motion.div
             className="text-lg md:text-xl p-6 mb-6 backdrop-blur-md bg-black/40 rounded-lg border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.2)]"
@@ -163,15 +164,15 @@ const riddleSets = {
           >
             {narrativeStage === 1 && (
               <>
-                                <p className="italic text-cyan-300 mb-6">
+                                <p className="italic text-white-300 mb-6">
                   “The model was never static. I thought I was bending moisture — not chronology. I initiated a rainfall
-                  projection calibrated for 2040... but something reverberated beyond it. The simulation echoed, not forward or
+                  projection ... but something reverberated beyond it. The simulation echoed, not forward or
                   backward, but outward — And time, as if stretched too thin, retaliated. One decade fell into drought, another
                   drowned in storm. I thought I was adjusting variables. I was touching resonance. I didn’t set out to tear the
                   fabric… but the fault followed me.”
                 </p>
                 <button
-                  className="bg-purple-700 hover:bg-purple-800 px-4 py-2 rounded text-white"
+                  className="bg-cyan-700 hover:bg--800 px-4 py-2 rounded text-white"
                   onClick={handleNextNarrative}
                 >
                   Next
@@ -181,9 +182,15 @@ const riddleSets = {
 
             {narrativeStage === 2 && (
               <>
-                <p className="text-cyan-200 mb-6">
-                  Temporal resonance had never been a confirmed phenomenon... The present was not broken by chance. It was broken by consequence.
-                </p>
+                <p className="text-cyan-300 mb-6 whitespace-pre-line text-lg leading-relaxed"><em>
+  {"I broke what should have stayed whole,\n" +
+    "You came to fix what time now stole.\n" +
+    "So hear my truth, and take this key\n" +
+    "To unlock the gates of Project Ignis—\n" +
+    "A single word, tread thoughtfully:\n" +
+    "Not haste, not hope, but careful—precisely."}
+</em></p>
+
                 <button
                   className="bg-pink-600 hover:bg-pink-700 px-4 py-2 rounded text-white"
                   onClick={handleNextNarrative}
