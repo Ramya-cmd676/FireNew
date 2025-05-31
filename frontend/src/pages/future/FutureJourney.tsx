@@ -9,6 +9,7 @@ import FutureFinalNode from './FutureFinalNode';
 import LocationNode from './LocationNode';
 import ProjectIgnis from './ProjectIgnis';
 import HeartStone from './HeartStone';
+import IntermediateHeartstone from './IntermediateHeartstone';
 
 const FutureJourney = () => {
   const location = useLocation();
@@ -74,7 +75,7 @@ const FutureJourney = () => {
                     src="/HeartStone.png"
                     alt="HeartStone"
                     className="w-10 h-10 cursor-pointer hover:scale-110 transition-transform duration-300"
-                    onClick={() => navigate('/journey/future/heartstone')}
+                    onClick={() => navigate('/journey/future/intermediate/heartstone')}
                   />
                 </div>
 
@@ -240,6 +241,9 @@ const FutureJourney = () => {
           path="/heartstone"
           element={<HeartStone />}
         />
+         <Route 
+        path="/intermediate/heartstone"
+        element={<IntermediateHeartstone />} />
       </Routes>
     </>
   );
