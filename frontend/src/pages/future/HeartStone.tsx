@@ -141,7 +141,7 @@ const HeartStone: React.FC = () => {
 return (
     <div ref={mountRef} className="heartstone-container">
         
-            <h2 className="text-center text-[#ff6b6b] text-2xl font-semibold mb-4 m">The Heart Stone</h2>
+           <h2 className="text-center text-[#fffff] text-5xl font-amarante mb-4">The Heart Stone</h2>
 
             
         {!showPrompt && (
@@ -162,13 +162,15 @@ return (
           </p>
         </div>
 
-        <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            placeholder="Enter the key to unlock"
-            className="resonance-input"
-        />
+        <div className="flex justify-center items-center">
+  <input
+    type="text"
+    value={input}
+    onChange={(e) => setInput(e.target.value)}
+    placeholder="Enter the key to unlock"
+    className="w-56 px-4 py-2 border border-[#cf4aae] text-white placeholder-[#eab1e9] bg-transparent rounded-md focus:outline-none focus:ring-1 focus:ring-[#cf4aae] font-amarante text-sm tracking-wide shadow"
+  />
+</div>
 
         <button 
         onClick={() => {
