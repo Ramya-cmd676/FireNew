@@ -152,10 +152,14 @@ return (
 {showPrompt && (
     <div className="soothing-message-box">
         <div className="soothing-text">
-            <p>“The stone responds only to its first resonance.</p>
-            <p>Not the code, not the key, but the echo I imprinted —</p>
-            <p>A phrase that tethered it to time itself.</p>
-            <p>Only that can stir its core.”</p>
+            <p className="italic text-purple-100 mb-8 leading-relaxed">
+            "Where time dissolves and boundaries fray,<br />
+            I linger, neither gone nor on the way.<br />
+            Not behind, nor yet ahead —<br />
+            A breath unclaimed, a word unsaid.<br />
+            I’m never held, yet always near.<br />
+            What am I, who waits right here?"
+          </p>
         </div>
 
         <input
@@ -168,7 +172,7 @@ return (
 
         <button 
         onClick={() => {
-            if (input.trim().toLowerCase() === 'vision') {
+            if (input.trim().toLowerCase() === 'present') {
       navigate('/journey/future/final', { state: { enableFinalPortal: true } })}
     }
             
