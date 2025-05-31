@@ -6,7 +6,7 @@ import PageTransition from '../../components/PageTransition';
 const FinalNode = () => {
   const [answer, setAnswer] = useState('');
   const [error, setError] = useState('');
-  const correctAnswer = 'vision'; // Example answer
+  const correctAnswer = 'present'; // Example answer
   const navigate = useNavigate();
   
   const handleSubmit = (e: React.FormEvent) => {
